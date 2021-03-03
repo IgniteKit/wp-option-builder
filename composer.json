@@ -10,7 +10,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "IgniteKit\\WP\\OptionsBuilder\\": "src"
+      "IgniteKit\\WP\\OptionBuilder\\": "src"
     }
   },
   "require": {
