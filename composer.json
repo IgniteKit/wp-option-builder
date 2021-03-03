@@ -1,0 +1,19 @@
+{
+  "name": "ignitekit/wp-options-builder",
+  "description": "Easy to use Options and Metabox framework for WordPress\n\n",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "email": "dg@darkog.com",
+      "name": "Darko Gjorgjijoski"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "IgniteKit\\WP\\OptionsBuilder\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=5.3"
+  }
+}

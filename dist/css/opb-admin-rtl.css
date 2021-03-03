@@ -1,0 +1,635 @@
+/* --------------------------------------------------
+  :: OptionBuilder Font
+  ---------------------------------------------------*/
+.ui-tabs li > a [class^="opb-icon-"],
+.ui-tabs li > a [class*=" opb-icon-"] {
+  display: block;
+  height: 14px;
+  float: right;
+  padding: 2px 0px 0 9px;
+}
+
+/* --------------------------------------------------
+  :: Messages
+  ---------------------------------------------------*/
+.wrap.settings-wrap div.error,
+.wrap.settings-wrap div.updated {
+  margin: 9px 2px 0px 5px !important;
+}
+
+/* --------------------------------------------------
+  :: OptionBuilder Wrappers
+  ---------------------------------------------------*/
+#option-builder-settings-api > .ui-tabs {
+  margin: 0px 2px 0 5px;
+  -webkit-box-shadow: inset -146px 0 0 #f1f1f1, inset -147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
+     -moz-box-shadow: inset -146px 0 0 #f1f1f1, inset -147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
+          box-shadow: inset -146px 0 0 #f1f1f1, inset -147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* --------------------------------------------------
+  :: Header
+  ---------------------------------------------------*/
+#option-builder-header {
+  margin: 11px 2px 0 5px;
+}
+#option-builder-header li {
+  float: right;
+}
+#option-builder-header #option-builder-logo a {
+  border-right: 0;
+  border-left: 1px solid #333;
+  float: right;
+  padding: 3px 13px 3px 12px;
+}
+#option-builder-header li#option-builder-logo:hover {
+  -webkit-border-top-right-radius: 2px;
+      -moz-border-radius-topright: 2px;
+          border-top-right-radius: 2px;
+}
+#option-builder-header #option-builder-version span,
+#option-builder-header #theme-version span {
+  border-left: 0;
+  border-right: 1px solid #555;
+  float: left;
+}
+#option-builder-header #theme-version:before {
+  border-right: 0;
+  border-left: 1px solid #333;
+  float: right;
+}
+/* light */
+.admin-color-light #option-builder-header #option-builder-logo a,
+.admin-color-light #option-builder-header #theme-version:before {
+  border-left-color: #3c3c3c;
+}
+.admin-color-light #option-builder-header li#option-builder-logo:hover a {
+  border-left-color: #3c3c3c;
+}
+.admin-color-light #option-builder-header #option-builder-version span,
+.admin-color-light #option-builder-header #theme-version span {
+  border-right-color: #999;
+}
+/* blue */
+.admin-color-blue #option-builder-header #option-builder-logo a,
+.admin-color-blue #option-builder-header #theme-version:before {
+  border-left-color: #002b39;
+}
+.admin-color-blue #option-builder-header li#option-builder-logo:hover a {
+  border-left-color: #002b39;
+}
+.admin-color-blue #option-builder-header #option-builder-version span,
+.admin-color-blue #option-builder-header #theme-version span {
+  border-right-color: #5dc2e6;
+}
+/* coffee */
+.admin-color-coffee #option-builder-header #option-builder-logo a,
+.admin-color-coffee #option-builder-header #theme-version:before {
+  border-left-color: #0f0e0d;
+}
+.admin-color-coffee #option-builder-header li#option-builder-logo:hover a {
+  border-left-color: #0f0e0d;
+}
+.admin-color-coffee #option-builder-header #option-builder-version span,
+.admin-color-coffee #option-builder-header #theme-version span {
+  border-right-color: #675f58;
+}
+/* ectoplasm */
+.admin-color-ectoplasm #option-builder-header #option-builder-logo a,
+.admin-color-ectoplasm #option-builder-header #theme-version:before {
+  border-left-color: #181220;
+}
+.admin-color-ectoplasm #option-builder-header li#option-builder-logo:hover a {
+  border-left-color: #181220;
+}
+.admin-color-ectoplasm #option-builder-header #option-builder-version span,
+.admin-color-ectoplasm #option-builder-header #theme-version span {
+  border-right-color: #644d85;
+}
+/* midnight */
+.admin-color-midnight #option-builder-header #option-builder-logo a,
+.admin-color-midnight #option-builder-header #theme-version:before {
+  border-left-color: #090a0b;
+}
+.admin-color-midnight #option-builder-header li#option-builder-logo:hover a {
+  border-left-color: #090a0b;
+}
+.admin-color-midnight #option-builder-header #option-builder-version span,
+.admin-color-midnight #option-builder-header #theme-version span {
+  border-right-color: #4c5359;
+}
+/* ocean */
+.admin-color-ocean #option-builder-header #option-builder-logo a,
+.admin-color-ocean #option-builder-header #theme-version:before {
+  border-left-color: #39464a;
+}
+.admin-color-ocean #option-builder-header li#option-builder-logo:hover a {
+  border-left-color: #39464a;
+}
+.admin-color-ocean #option-builder-header #option-builder-version span,
+.admin-color-ocean #option-builder-header #theme-version span {
+  border-right-color: #87a6af;
+}
+/* sunrise */
+.admin-color-sunrise #option-builder-header #option-builder-logo a,
+.admin-color-sunrise #option-builder-header #theme-version:before {
+  border-left-color: #8a322a;
+}
+.admin-color-sunrise #option-builder-header li#option-builder-logo:hover a {
+  border-left-color: #8a322a;
+}
+.admin-color-sunrise #option-builder-header #option-builder-version span,
+.admin-color-sunrise #option-builder-header #theme-version span {
+  border-right-color: #e75546;
+}
+
+/* --------------------------------------------------
+  :: Sub Header
+  ---------------------------------------------------*/
+#option-builder-sub-header {
+  margin: 0 2px 0 5px;
+}
+
+/* --------------------------------------------------
+  :: Tabs
+  ---------------------------------------------------*/
+.wrap.settings-wrap .ui-tabs-nav {
+  float: right;
+  margin: 0 -4px 0 0;
+}
+.wrap.settings-wrap .ui-tabs-nav li {
+  border-left-width: 0;
+  border-right-width: 1px;
+  -webkit-border-radius: 0 2px 2px 0;
+     -moz-border-radius: 0 2px 2px 0;
+          border-radius: 0 2px 2px 0;
+}
+.wrap.settings-wrap .ui-tabs-nav li a {
+  padding: 5px 12px 5px 5px;
+}
+
+/* --------------------------------------------------
+  :: Format Setting
+  ---------------------------------------------------*/
+.format-setting .format-setting-inner {
+  float: right;
+}
+.format-setting .description {
+  float: left;
+}
+#post .format-setting-inner p {
+  float: right;
+}
+.docs-ul li {
+  margin-left: 0;
+  margin-right: 20px;
+}
+#contextual-help-setting {
+  float: right;
+}
+#contextual-help-label {
+  float: right;
+}
+#option_builder_settings_help {
+  float: right;
+}
+#option-builder-settings-api blockquote {
+  padding-left: 0;
+  padding-right: 15px;
+}
+#option-builder-settings-api blockquote:before {
+  left: auto;
+  right: -10px;
+  top: 10px;
+}
+
+/* --------------------------------------------------
+  :: Input & Upload
+  ---------------------------------------------------*/
+input.option-builder-ui-upload-input,
+input.option-builder-ui-input {
+  -moz-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+.option-builder-sortable input.option-builder-ui-upload-input,
+.option-builder-sortable input.option-builder-ui-input {
+  width: 99.9%; /* fixes a strange bug with input with */
+}
+
+/* --------------------------------------------------
+  :: Upload
+  ---------------------------------------------------*/
+div.option-builder-ui-media-wrap {
+  margin: 5px 0 0 55px;
+}
+.option-builder-ui-media-wrap img {
+  float: right;
+}
+.option-builder-ui-upload-parent {
+  margin-right: 0;
+  margin-left: 45px;
+}
+.format-setting .opb_upload_media {
+  right: auto;
+  left: -45px;
+}
+.option-builder-ui-media-wrap a.option-builder-ui-remove-media {
+  right: auto;
+  left: -55px;
+}
+
+/* --------------------------------------------------
+  :: Setting Item with Drag & Drop
+  ---------------------------------------------------*/
+.option-builder-setting .open {
+  padding: 10px 10px 10px 100px;
+}
+.option-builder-setting .open:hover:before {
+  left: auto;
+  right: 4px;
+}
+.button-section {
+  right: auto;
+  left: 0px;
+}
+
+/* --------------------------------------------------
+  :: Layouts
+  ---------------------------------------------------*/
+#option-builder-options-layouts-form {
+  left: auto;
+  right: 13px;
+}
+.option-builder-save-layout {
+  float: right;
+}
+.option-builder-save-layout.active-layout {
+  border-left: 0;
+  border-right: 1px solid #fff;
+  padding-left: 0;
+  padding-right: 9px;
+}
+.option-builder-save-layout .widefat {
+  float: right;
+}
+.option-builder-save-layout button.blue {
+  margin: 0 10px 0 0;
+}
+.option-builder-active-layout {
+  border-right: 0;
+  border-left: 1px solid #ccc;
+  float: right;
+  padding: 10px 0 10px 10px;
+}
+.button.save-layout {
+  margin: 0 10px 0 0 !important;
+}
+
+/* --------------------------------------------------
+  :: Option Group
+  ---------------------------------------------------*/
+.opb-option-group {
+  float: right;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+.opb-option-group--is-last {
+  padding-left: 0;
+}
+.opb-option-group--icon {
+  border-left: 1px solid #ccc;
+  border-right: 0px;
+  left: auto;
+  right: 1px;
+}
+.opb-option-group--icon + input.option-builder-ui-input {
+  padding-left: 5px !important;
+  padding-right: 34px !important;
+  margin-left: 5px;
+  margin-right: 0px;
+}
+.opb-option-group--checkbox {
+  float: right;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+#post-body .opb-option-group--checkbox p {
+  float: right;
+}
+
+/* --------------------------------------------------
+  :: Select
+  ---------------------------------------------------*/
+.select-wrapper {
+  background: #fff url(../images/opb-select-rtl.png) no-repeat left center;
+  float: right;
+  margin: 0 0 5px 5px;
+  -moz-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+.select-wrapper:hover {
+  background-image: url(../images/opb-select-hover-rtl.png);
+}
+.select-wrapper span {
+  padding-left: 27px;
+  padding-right: 7px;
+}
+.type-measurement .select-wrapper {
+  margin-left: 0;
+  right: auto;
+  left: 0;
+}
+/* FireFox */
+@-moz-document url-prefix() {
+  #option-builder-options-layouts-form .select-wrapper {
+    left: auto;
+    right: 250px;
+  }
+}
+
+/* --------------------------------------------------
+  :: Measurement
+  ---------------------------------------------------*/
+.option-builder-ui-measurement-input-wrap {
+  margin-right: 0;
+  margin-left: 80px;
+}
+
+/* --------------------------------------------------
+  :: Checkbox & Radio
+  ---------------------------------------------------*/
+.format-setting.type-checkbox input,
+.format-setting.type-radio input {
+  float: right;
+  margin: 2px 1px 0 5px;
+}
+.format-setting.type-checkbox label,
+.format-setting.type-radio label {
+  float: right;
+}
+#option-builder-settings-api .format-setting.type-checkbox p,
+#option-builder-settings-api .format-setting.type-radio p {
+  float: right;
+}
+
+/* --------------------------------------------------
+  :: Radio Images
+  ---------------------------------------------------*/
+.type-radio-image .option-builder-ui-radio-images {
+  float: right;
+  margin: 0 0px 10px 10px;
+}
+
+/* --------------------------------------------------
+  :: Numeric Slider
+  ---------------------------------------------------*/
+.opb-numeric-slider-wrap {
+  margin: 0 0 0 96px;
+}
+.opb-numeric-slider-wrap .opb-numeric-slider-helper-input {
+  right: auto;
+  left: 5px;
+}
+.opb-numeric-slider.ui-slider {
+  -webkit-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* --------------------------------------------------
+  :: Colorpicker
+  ---------------------------------------------------*/
+.option-builder-ui-colorpicker-input-wrap {
+  float: right;
+}
+.option-builder-ui-colorpicker-input-wrap .option-builder-ui-colorpicker-label {
+  margin-left: 10px;
+  margin-right: 0px;
+}
+.type-link-color .option-builder-ui-colorpicker-input-wrap {
+  margin-left: 20px;
+  margin-right: 0px;
+}
+.option-builder-ui-colorpicker-input-wrap .wp-color-result {
+  margin: 0px 0px 5px 5px;
+}
+.option-builder-ui-colorpicker-input-wrap .wp-picker-container .iris-picker {
+  margin: 0px 0px 5px 5px;
+}
+
+/* --------------------------------------------------
+  :: Google Font
+  ---------------------------------------------------*/
+.js-remove-google-font.option-builder-ui-button.button {
+  margin-left: 5px;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+/* --------------------------------------------------
+  :: OptionBuilder UI Buttons
+  ---------------------------------------------------*/
+.option-builder-ui-button {
+  float: right !important;
+}
+.option-builder-ui-button.right {
+  float: left !important;
+}
+.option-builder-ui-button.hug-left {
+  margin-right: 0px;
+}
+.option-builder-ui-button.hug-right {
+  margin-left: 0px;
+}
+.option-builder-ui-button.left-item {
+  float: right !important;
+  margin: 5px 5px 5px 0;
+  -webkit-border-radius: 0px 2px 2px 0px;
+     -moz-border-radius: 0px 2px 2px 0px;
+          border-radius: 0px 2px 2px 0px;
+}
+.option-builder-ui-button.center-item {
+  margin: 5px -1px 5px 0;
+}
+.option-builder-ui-button.right-item {
+  float: left !important;
+  margin: 5px -1px 5px 5px;
+  -webkit-border-radius: 2px 0px 0px 2px;
+     -moz-border-radius: 2px 0px 0px 2px;
+          border-radius: 2px 0px 0px 2px;
+}
+.option-builder-ui-buttons {
+  margin: 11px 2px 0 5px;
+}
+button.reset-settings {
+  left: auto;
+  right: 8px;
+}
+
+/* --------------------------------------------------
+  :: OptionBuilder UI Button Icons
+  ---------------------------------------------------*/
+.option-builder-ui-button .icon {
+  float: right;
+  text-indent: 0;
+}
+.option-builder-ui-button .icon.left-label {
+  margin-left: 10px;
+  float: left;
+}
+
+/* --------------------------------------------------
+  :: Gallery
+  ---------------------------------------------------*/
+ul.opb-gallery-list {
+  float: right;
+}
+ul.opb-gallery-list li {
+  float: right;
+  margin: 0px 0 10px 10px;
+}
+.opb-gallery-buttons {
+  float: right;
+}
+
+/* --------------------------------------------------
+  :: Google Fonts
+  ---------------------------------------------------*/
+.option-builder-google-font-family,
+.option-builder-google-font-variants,
+.option-builder-google-font-subsets,
+#option-builder-settings-api p.checkbox-wrap,
+#post-body .opb-metabox-panels p.checkbox-wrap {
+  float: right;
+}
+
+/* --------------------------------------------------
+  :: On/Off Switch
+  ---------------------------------------------------*/
+@media only screen {
+  .on-off-switch {
+    -webkit-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.05);
+  }
+  .on-off-switch label {
+    float: right;
+  }
+  .on-off-switch .slide-button {
+    left: auto;
+    right: -1px;
+  }
+  .on-off-switch input:last-of-type:checked ~ .slide-button {
+    left: auto;
+    right: 50%;
+  }
+}
+
+/* --------------------------------------------------
+  :: Date Picker
+  ---------------------------------------------------*/
+.ui-datepicker {
+  direction: rtl;
+}
+.ui-datepicker .ui-widget-header {
+  left: auto;
+  right: -1px;
+}
+.ui-datepicker-prev:before {
+  border-right: 0px;
+  border-left: 1px solid #555;
+  content: "\f105";
+  float: left;
+  width: 31px;
+  height: 30px;
+}
+.ui-datepicker-prev {
+  border-right: 0px;
+  border-left: 1px solid #333;
+  float: right;
+  width: 31px;
+}
+.ui-datepicker-next:before {
+  border-left: 0px;
+  border-right: 1px solid #333;
+  content: "\f104";
+  float: right;
+  width: 30px;
+  height: 30px;
+}
+.ui-datepicker-next {
+  border-left: 0px;
+  border-right: 1px solid #555;
+  float: left;
+  width: 30px;
+}
+.ui-datepicker thead th:last-child {
+  border-left: 1px solid #ccc;
+}
+.ui-datepicker tbody td {
+  border-left: 1px solid #ccc;
+}
+.ui-datepicker tbody td:first-child {
+  border-left: 0px;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+  float: left;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+  float: right;
+}
+@-moz-document url-prefix() {
+  .ui-datepicker-calendar {
+    position: relative;
+    right: -1px;
+  }
+  .ui-datepicker-calendar thead {
+    border-right: 1px solid #ccc;
+  }
+}
+
+/* --------------------------------------------------
+  :: Time Picker
+  ---------------------------------------------------*/
+.ui-timepicker-div {
+  direction: rtl;
+}
+.ui-timepicker-div dl {
+  text-align: right;
+  padding: 0 5px 0 0;
+}
+.ui-timepicker-div dl dt {
+  float: right;
+  clear: right;
+}
+.ui-timepicker-div dl dd {
+  margin: 0 45% 10px 10px;
+}
+
+/* --------------------------------------------------
+  :: Meta Box Tabs
+  ---------------------------------------------------*/
+.opb-metabox-tabs.ui-tabs .opb-metabox-nav.ui-tabs-nav {
+  float: right;
+  margin: 0 0 0 -1px;
+}
+.opb-metabox-tabs.ui-tabs .opb-metabox-nav.ui-tabs-nav li {
+  border-width: 1px 1px 1px 0px;
+  -webkit-border-radius: 0 0 2px 2px;
+     -moz-border-radius: 0 0 2px 2px;
+          border-radius: 0 0 2px 2px;
+}
+.opb-metabox-tabs.ui-tabs .opb-metabox-nav.ui-tabs-nav li a {
+  padding: 5px 12px 5px 5px;
+}
+
+/* --------------------------------------------------
+  :: Theme Option & Side Metabox Tabs
+  ---------------------------------------------------*/
+.opb-theme-option-tabs.ui-tabs .opb-theme-option-nav.ui-tabs-nav li.ui-state-default,
+#side-sortables .opb-metabox-tabs.ui-tabs .opb-metabox-nav.ui-tabs-nav li.ui-state-default {
+  float: right;
+  margin: 0 3px 0 0 !important;
+}
