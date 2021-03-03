@@ -106,28 +106,7 @@ class Bootstrap {
 		/**
 		 * Current Version number.
 		 */
-		define( 'OPB_VERSION', '3.0.0' );
-
-		/**
-		 * For developers: Show OptionBuilder in admin interface.
-		 *
-		 * Run a filter and set to false if you want to hide the
-		 * OptionBuilder in the admin area of WordPress.
-		 *
-		 * @since 1.0.0
-		 * @since 1.0.0 - false by default
-		 */
-		define( 'OPB_SHOW_PAGES', apply_filters( 'opb_show_pages', true ) );
-
-		/**
-		 * For developers: Show New Layout.
-		 *
-		 * Run a filter and set to false if you don't want to show the
-		 * "New Layout" section at the top of the theme options page.
-		 *
-		 * @since 1.0.0
-		 */
-		define( 'OPB_SHOW_NEW_LAYOUT', apply_filters( 'opb_show_new_layout', false ) );
+		define( 'OPB_VERSION', '1.0.2' );
 
 		/**
 		 * Define the library dir path
@@ -142,7 +121,27 @@ class Bootstrap {
 		define( 'OPB_URL', $this->url );
 
 		/**
-		 * Gfonts api key
+		 * For developers: Show OptionBuilder in admin interface.
+		 *
+		 * Run a filter and set to false if you want to hide the
+		 * OptionBuilder in the admin area of WordPress.
+		 *
+		 * @since 1.0.0
+		 */
+		define( 'OPB_SHOW_PAGES', apply_filters( 'opb_show_pages', false ) );
+
+		/**
+		 * For developers: Show New Layout.
+		 *
+		 * Run a filter and set to false if you don't want to show the
+		 * "New Layout" section at the top of the theme options page.
+		 *
+		 * @since 1.0.0
+		 */
+		define( 'OPB_SHOW_NEW_LAYOUT', apply_filters( 'opb_show_new_layout', false ) );
+
+		/**
+		 * Google Fonts API Key
 		 * @since 1.0.0
 		 */
 		define( 'OPB_GFONTS_API_KEY', false );
