@@ -10,7 +10,7 @@ spl_autoload_register( function ( $className ) {
 	/**
 	 * Generate the direct path to the class
 	 */
-	$className = str_replace( 'IgniteKit\\WP\\OptionsBuilder\\', '', $className );
+	$className = str_replace( 'IgniteKit\\WP\\OptionBuilder\\', '', $className );
 	$className = str_replace( '\\', $ds, $className );
 
 	/**

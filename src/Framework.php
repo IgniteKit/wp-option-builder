@@ -18,7 +18,6 @@ class Framework {
 		Bootstrap::run();
 	}
 
-
 	/**
 	 * Register admin settings
 	 *
