@@ -5,6 +5,92 @@ namespace IgniteKit\WP\OptionBuilder;
 class Utils {
 
 	/**
+	 * Filter the array values recursively.
+	 *
+	 * @param array $values The value to sanitize.
+	 *
+	 * @return array
+	 */
+	public static function _sanitize_recursive( $values = array() ) {
+		$result = array();
+		foreach ( $values as $key => $value ) {
+			if ( ! is_object( $value ) ) {
+				if ( is_scalar( $value ) ) {
+					$result[ $key ] = sanitize_textarea_field( $value );
+				} else {
+					$result[ $key ] = self::_sanitize_recursive( $value );
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Filter the allowed HTML and safe CSS styles.
+	 *
+	 * @param bool $add Whether to add or remove the filter.
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	public static function _filter_wp_kses_post( $add = true ) {
+		$css_filter = function ( $attr ) {
+			array_push( $attr, 'display', 'visibility' );
+
+			$attr = apply_filters( 'opb_safe_style_css', $attr );
+
+			return $attr;
+		};
+
+		$html_filter = function ( $tags, $context ) {
+			if ( 'post' === $context ) {
+				if ( current_user_can( 'unfiltered_html' ) || apply_filters( 'opb_allow_unfiltered_html', false ) ) {
+					$tags['script']   = array_fill_keys( array(
+						'async',
+						'charset',
+						'defer',
+						'src',
+						'type'
+					), true );
+					$tags['style']    = array_fill_keys( array( 'media', 'type' ), true );
+					$tags['iframe']   = array_fill_keys( array(
+						'align',
+						'allowfullscreen',
+						'class',
+						'frameborder',
+						'height',
+						'id',
+						'longdesc',
+						'marginheight',
+						'marginwidth',
+						'name',
+						'sandbox',
+						'scrolling',
+						'src',
+						'srcdoc',
+						'style',
+						'width'
+					), true );
+					$tags['noscript'] = true;
+
+					$tags = apply_filters( 'opb_allowed_html', $tags );
+				}
+			}
+
+			return $tags;
+		};
+
+		if ( $add ) {
+			add_filter( 'safe_style_css', $css_filter );
+			add_filter( 'wp_kses_allowed_html', $html_filter, 10, 2 );
+		} else {
+			remove_filter( 'safe_style_css', $css_filter );
+			remove_filter( 'wp_kses_allowed_html', $html_filter );
+		}
+	}
+
+	/**
 	 * Validate the options by type before saving.
 	 *
 	 * This function will run on only some of the option types
@@ -171,75 +257,9 @@ class Utils {
 				$input_safe = absint( $input );
 			}
 		} elseif ( in_array( $type, array( 'css', 'javascript', 'text', 'textarea', 'textarea-simple' ), true ) ) {
-			if ( ! function_exists( '_filter_wp_kses_post' ) ) {
-				/**
-				 * Filter the allowed HTML and safe CSS styles.
-				 *
-				 * @param bool $add Whether to add or remove the filter.
-				 *
-				 * @since 1.0.0
-				 *
-				 */
-				function _filter_wp_kses_post( $add = true ) {
-					$css_filter = function ( $attr ) {
-						array_push( $attr, 'display', 'visibility' );
-
-						$attr = apply_filters( 'opb_safe_style_css', $attr );
-
-						return $attr;
-					};
-
-					$html_filter = function ( $tags, $context ) {
-						if ( 'post' === $context ) {
-							if ( current_user_can( 'unfiltered_html' ) || apply_filters( 'opb_allow_unfiltered_html', false ) ) {
-								$tags['script']   = array_fill_keys( array(
-									'async',
-									'charset',
-									'defer',
-									'src',
-									'type'
-								), true );
-								$tags['style']    = array_fill_keys( array( 'media', 'type' ), true );
-								$tags['iframe']   = array_fill_keys( array(
-									'align',
-									'allowfullscreen',
-									'class',
-									'frameborder',
-									'height',
-									'id',
-									'longdesc',
-									'marginheight',
-									'marginwidth',
-									'name',
-									'sandbox',
-									'scrolling',
-									'src',
-									'srcdoc',
-									'style',
-									'width'
-								), true );
-								$tags['noscript'] = true;
-
-								$tags = apply_filters( 'opb_allowed_html', $tags );
-							}
-						}
-
-						return $tags;
-					};
-
-					if ( $add ) {
-						add_filter( 'safe_style_css', $css_filter );
-						add_filter( 'wp_kses_allowed_html', $html_filter, 10, 2 );
-					} else {
-						remove_filter( 'safe_style_css', $css_filter );
-						remove_filter( 'wp_kses_allowed_html', $html_filter );
-					}
-				}
-			}
-
-			_filter_wp_kses_post( true );
+			self::_filter_wp_kses_post( true );
 			$input_safe = wp_kses_post( $input );
-			_filter_wp_kses_post( false );
+			self::_filter_wp_kses_post( false );
 		} elseif ( 'date-picker' === $type || 'date-time-picker' === $type ) {
 			if ( ! empty( $input ) && (bool) strtotime( $input ) ) {
 				$input_safe = sanitize_text_field( $input );
@@ -392,30 +412,7 @@ class Utils {
 				if ( is_scalar( $input ) ) {
 					$input_safe = sanitize_textarea_field( $input );
 				} else {
-					if ( ! function_exists( '_sanitize_recursive' ) ) {
-						/**
-						 * Filter the array values recursively.
-						 *
-						 * @param array $values The value to sanitize.
-						 *
-						 * @return array
-						 */
-						function _sanitize_recursive( $values = array() ) {
-							$result = array();
-							foreach ( $values as $key => $value ) {
-								if ( ! is_object( $value ) ) {
-									if ( is_scalar( $value ) ) {
-										$result[ $key ] = sanitize_textarea_field( $value );
-									} else {
-										$result[ $key ] = _sanitize_recursive( $value );
-									}
-								}
-							}
-
-							return $result;
-						}
-					}
-					$input_safe = _sanitize_recursive( $input );
+					$input_safe = self::_sanitize_recursive( $input );
 				}
 			}
 		}
