@@ -81,6 +81,40 @@ class Metabox {
 		}
 	}
 
+
+	/**
+	 * Returns the field value
+	 *
+	 * @param $post
+	 * @param $field
+	 *
+	 * @return string
+	 *
+	 * @since 1.0.4
+	 */
+	public function get_field_value( $post, $field ) {
+
+		$save_mode = $this->get_field_save_mode();
+
+		if ( 'default' === $save_mode ) {
+			return get_post_meta( $post->ID, $field['id'], true );
+		} else {
+			$data = get_post_meta( $post->ID, $this->meta_box['id'], true );
+
+			return isset( $data[ $field['id'] ] ) ? $data[ $field['id'] ] : '';
+		}
+
+	}
+
+	/**
+	 * Returns the save mode
+	 * @return mixed|string
+	 * @since 1.0.4
+	 */
+	public function get_field_save_mode() {
+		return isset($this->meta_box['save_mode']) ? $this->meta_box['save_mode'] : 'default';
+	}
+
 	/**
 	 * Meta box view.
 	 *
@@ -109,7 +143,7 @@ class Metabox {
 		foreach ( $this->meta_box['fields'] as $field ) {
 
 			// Get current post meta data.
-			$field_value = get_post_meta( $post->ID, $field['id'], true );
+			$field_value = $this->get_field_value($post, $field);
 
 			// Set standard value.
 			if ( isset( $field['std'] ) ) {
@@ -252,9 +286,19 @@ class Metabox {
 			}
 		}
 
+		$save_as    = $this->get_field_save_mode();
+		$field_data = 'default' === $save_as ? array() : get_post_meta( $post_id, $this->meta_box['id'], true );
+		if ( empty( $field_data ) ) {
+			$field_data = array();
+		}
+
 		foreach ( $this->meta_box['fields'] as $field ) {
 
-			$old = get_post_meta( $post_id, $field['id'], true );
+			if ( 'default' === $save_as ) {
+				$old = get_post_meta( $post_id, $field['id'], true );
+			} else {
+				$old = isset( $field_data[ $field['id'] ] ) ? $field_data[ $field['id'] ] : '';
+			}
 			$new = '';
 
 			// There is data to validate.
@@ -349,10 +393,18 @@ class Metabox {
 			}
 
 			if ( isset( $new ) && $new !== $old ) {
-				update_post_meta( $post_id, $field['id'], $new );
+				if ( 'default' === $save_as ) {
+					update_post_meta( $post_id, $field['id'], $new );
+				} else {
+					$field_data[ $field['id'] ] = $new;
+				}
 			} elseif ( '' === $new && $old ) {
 				delete_post_meta( $post_id, $field['id'], $old );
 			}
+		}
+
+		if ( 'default' !== $save_as ) {
+			update_post_meta( $post_id, $this->meta_box['id'], $field_data );
 		}
 	}
 
