@@ -179,7 +179,7 @@ $framework->register_settings( array( $settings ) ); // Note: $settings one grou
 
 To retrieve options for the above settings, locate the settings key, in our case `custom_options`.
 
-```
+```php
 // Make settings instance
 $settings = get_option('custom_options');
 
@@ -252,13 +252,15 @@ $framework->register_metabox( array(
 
 To retrieve the metabox settings, use get_post_meta() function as follows.
 
-```
+```php
 $value = get_post_meta($post_id, 'demo_text', true);
 ```
 
-If you are using `'save_mode' => 'array'` in the metabox settings, then all the settings will be stored into one meta row as serialized array. To retrieve with this kind of save mode, call the  get_post_meta() function on the metabox id as follows:
+If you are using `'save_mode' => 'array'` in the metabox settings, then all the settings will be stored into one meta row as serialized array. This appraoch is good if you want better performance. The data will be accessible with one mysql query instead of separate for each field.
 
-```
+To retrieve with this kind of save_mode, call the  get_post_meta() function on the metabox id as follows:
+
+```php
 $data = get_post_meta($post_id, 'demo_meta_box', true);
 $value = $data['demo_text'];
 ```
