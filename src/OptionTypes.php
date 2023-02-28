@@ -2002,7 +2002,8 @@ class OptionTypes {
 		echo '<select name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" class="option-builder-ui-select ' . esc_attr( $field_class ) . '">';
 		foreach ( (array) $field_choices as $choice ) {
 			if ( isset( $choice['value'] ) && isset( $choice['label'] ) ) {
-				echo '<option value="' . esc_attr( $choice['value'] ) . '"' . selected( $field_value, $choice['value'], false ) . '>' . esc_attr( $choice['label'] ) . '</option>';
+				$disabled = isset($choice['disabled']) ? (bool) $choice['disabled'] : false;
+				echo '<option value="' . esc_attr( $choice['value'] ) . '"' . selected( $field_value, $choice['value'], false ) . ' ' . disabled(true, $disabled, false) .  '>' . esc_attr( $choice['label'] ) . '</option>';
 			}
 		}
 
