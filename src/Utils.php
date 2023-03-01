@@ -3477,6 +3477,14 @@ class Utils {
 	}
 
 	/**
+	 * Allowed html
+	 * @return array
+	 */
+	public static function kses_allowed_html() {
+		return array_merge(wp_kses_allowed_html(), [ 'table', 'td', 'th', 'tr', 'tbody' ]);
+	}
+
+	/**
 	 * Theme Options ID
 	 *
 	 * @return string

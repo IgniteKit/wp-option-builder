@@ -2311,6 +2311,23 @@ class OptionTypes {
 	}
 
 	/**
+	 * HTML Option.
+	 *
+	 * @param  array  $args
+	 *
+	 * @return void
+	 *
+	 * @access public
+	 * @since 1.2.0
+	 */
+	public function type_html( $args = array() ) {
+
+		echo '<div class="format-setting type-html">';
+		echo ! empty( $args['field_markup'] ) ? wp_kses( $args['field_markup'], Utils::kses_allowed_html() ) : '';
+		echo '</div>';
+	}
+
+	/**
 	 * Spacing Option Type.
 	 *
 	 * See @display_by_type to see the full list of available arguments.
