@@ -1514,6 +1514,9 @@
   color: #000;
   outline: none;
 }
+.wrap.settings-wrap .ui-tabs-nav li a:focus {
+  box-shadow:none;
+}
 .wrap.settings-wrap .ui-tabs-panel {
   clear: both;
 }
@@ -1551,9 +1554,10 @@
   font-weight: 500;
   line-height: 1.6em;
   letter-spacing: 0;
-  padding: 0 0 9px 0;
   -webkit-user-select: text;
   text-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 /* --------------------------------------------------

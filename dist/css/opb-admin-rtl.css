@@ -166,6 +166,10 @@
 }
 .wrap.settings-wrap .ui-tabs-nav li a {
   padding: 5px 12px 5px 5px;
+  box-shadow: none;
+}
+.wrap.settings-wrap .ui-tabs-nav li a:focus {
+  box-shadow:none;
 }
 
 /* --------------------------------------------------
