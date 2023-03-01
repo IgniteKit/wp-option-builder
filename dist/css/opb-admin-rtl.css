@@ -47,6 +47,14 @@
       -moz-border-radius-topright: 2px;
           border-top-right-radius: 2px;
 }
+#option-builder-logo-icon span, #option-builder-logo-icon i {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+}
+#option-builder-logo-logo img {
+  display: block;
+  padding: 5px 10px;
+}
 #option-builder-header #option-builder-version span,
 #option-builder-header #theme-version span {
   border-left: 0;

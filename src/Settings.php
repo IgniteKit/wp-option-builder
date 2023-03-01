@@ -256,8 +256,30 @@ class Settings {
 
 					echo '<ul id="option-builder-header">';
 
-					$link = '<a href="https://wordpress.org/plugins/option-builder/" target="_blank">' . esc_html__( 'OptionBuilder', 'option-builder' ) . '</a>';
-					echo '<li id="option-builder-logo">' . wp_kses_post( apply_filters( 'opb_header_logo_link', $link, $page['id'] ) ) . '</li>';
+					$logo = apply_filters( 'opb_header_logo_image', '', $page['id'] );
+					$icon = apply_filters( 'opb_header_logo_icon', '', $page['id'] );
+					$url  = apply_filters( 'opb_header_logo_url', 'https://github.com/IgniteKit/wp-option-builder', $page['id'] );
+
+					if ( empty( $logo ) && empty( $icon ) ) {
+
+						$link = '<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'OptionBuilder', 'option-builder' ) . '</a>';
+						echo '<li id="option-builder-logo">' . wp_kses_post( apply_filters( 'opb_header_logo_link', $link, $page['id'] ) ) . '</li>';
+					} else {
+						$type = '';
+						if ( ! empty( $logo ) ) {
+							$icon = '<img width="20" height="20" src="' . esc_url( $logo ) . '" alt="' . esc_html__( 'OptionBuilder', 'option-buiolder' ) . '"/>';
+							$type = '-logo';
+						} elseif ( ! empty( $icon ) ) {
+							$icon = '<span class="' . esc_attr( $icon ) . '"></span>';
+							$type = '-icon';
+						}
+						if ( ! empty( $url ) ) {
+							$text = '<a href="' . esc_url( $url ) . '" target="_blank">' . $icon . '</a>';
+						} else {
+							$text = $icon;
+						}
+						echo '<li id="option-builder-logo'.$type.'">' . $text . '</li>';
+					}
 
 					echo '<li id="option-builder-version"><span>' . esc_html( apply_filters( 'opb_header_version_text', 'OptionBuilder ' . OPB_VERSION, $page['id'] ) ) . '</span></li>';
 

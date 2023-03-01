@@ -1269,6 +1269,14 @@
 #option-builder-header li#option-builder-logo:hover a {
   border-right-color: #000;
 }
+#option-builder-logo-icon span, #option-builder-logo-icon i {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+}
+#option-builder-logo-logo img {
+  display: block;
+  padding: 5px 10px;
+}
 #option-builder-header #option-builder-version span,
 #option-builder-header #theme-version span {
   border-left: 1px solid #444;
@@ -1300,7 +1308,10 @@
 .admin-color-light #option-builder-header #theme-version:before {
   border-right-color: #3c3c3c;
 }
-.admin-color-light #option-builder-header li#option-builder-logo:hover {
+.admin-color-light #option-builder-header li#option-builder-logo:hover,
+.admin-color-light #option-builder-logo-icon span:hover,
+.admin-color-light #option-builder-logo-icon i:hover,
+.admin-color-light #option-builder-logo-logo img:hover {
   background-color: #777;
 }
 .admin-color-light #option-builder-header li#option-builder-logo:hover a {
@@ -1325,7 +1336,10 @@
 .admin-color-blue #option-builder-header #theme-version:before {
   border-right-color: #002b39;
 }
-.admin-color-blue #option-builder-header li#option-builder-logo:hover {
+.admin-color-blue #option-builder-header li#option-builder-logo:hover,
+.admin-color-blue #option-builder-logo-icon span:hover,
+.admin-color-blue #option-builder-logo-icon i:hover,
+.admin-color-blue #option-builder-logo-logo img:hover {
   background-color: #006484;
 }
 .admin-color-blue #option-builder-header li#option-builder-logo:hover a {
@@ -1350,7 +1364,10 @@
 .admin-color-coffee #option-builder-header #theme-version:before {
   border-right-color: #0f0e0d;
 }
-.admin-color-coffee #option-builder-header li#option-builder-logo:hover {
+.admin-color-coffee #option-builder-header li#option-builder-logo:hover,
+.admin-color-coffee #option-builder-logo-icon span:hover,
+.admin-color-coffee #option-builder-logo-icon i:hover,
+.admin-color-coffee #option-builder-logo-logo img:hover {
   background-color: #cca588;
 }
 .admin-color-coffee #option-builder-header li#option-builder-logo:hover a {
@@ -1375,9 +1392,13 @@
 .admin-color-ectoplasm #option-builder-header #theme-version:before {
   border-right-color: #181220;
 }
-.admin-color-ectoplasm #option-builder-header li#option-builder-logo:hover {
+.admin-color-ectoplasm #option-builder-header li#option-builder-logo:hover,
+.admin-color-ectoplasm #option-builder-logo-icon span:hover,
+.admin-color-ectoplasm #option-builder-logo-icon i:hover,
+.admin-color-ectoplasm #option-builder-logo-logo img:hover {
   background-color: #a3b542;
 }
+
 .admin-color-ectoplasm #option-builder-header li#option-builder-logo:hover a {
   border-right-color: #181220;
 }
@@ -1400,7 +1421,10 @@
 .admin-color-midnight #option-builder-header #theme-version:before {
   border-right-color: #090a0b;
 }
-.admin-color-midnight #option-builder-header li#option-builder-logo:hover {
+.admin-color-midnight #option-builder-header li#option-builder-logo:hover,
+.admin-color-midnight #option-builder-logo-icon span:hover,
+.admin-color-midnight #option-builder-logo-icon i:hover,
+.admin-color-midnight #option-builder-logo-logo img:hover {
   background-color: #ed543f;
 }
 .admin-color-midnight #option-builder-header li#option-builder-logo:hover a {
@@ -1425,7 +1449,10 @@
 .admin-color-ocean #option-builder-header #theme-version:before {
   border-right-color: #39464a;
 }
-.admin-color-ocean #option-builder-header li#option-builder-logo:hover {
+.admin-color-ocean #option-builder-header li#option-builder-logo:hover,
+.admin-color-ocean #option-builder-logo-icon span:hover,
+.admin-color-ocean #option-builder-logo-icon i:hover,
+.admin-color-ocean #option-builder-logo-logo img:hover {
   background-color: #9ab8a0;
 }
 .admin-color-ocean #option-builder-header li#option-builder-logo:hover a {
@@ -1450,7 +1477,10 @@
 .admin-color-sunrise #option-builder-header #theme-version:before {
   border-right-color: #8a322a;
 }
-.admin-color-sunrise #option-builder-header li#option-builder-logo:hover {
+.admin-color-sunrise #option-builder-header li#option-builder-logo:hover,
+.admin-color-sunrise #option-builder-logo-icon span:hover,
+.admin-color-sunrise #option-builder-logo-icon i:hover,
+.admin-color-sunrise #option-builder-logo-logo img:hover {
   background-color: #e88436;
 }
 .admin-color-sunrise #option-builder-header li#option-builder-logo:hover a {
