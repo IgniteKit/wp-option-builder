@@ -3481,7 +3481,56 @@ class Utils {
 	 * @return array
 	 */
 	public static function kses_allowed_html() {
-		return array_merge(wp_kses_allowed_html(), [ 'table', 'td', 'th', 'tr', 'tbody' ]);
+
+		$allowed_html = [
+			'table' => [
+				'style' => true,
+				'class' => true
+			],
+			'tr' => [
+				'style' => true,
+				'class' => true
+			],
+			'td' => [
+				'style' => true,
+				'class' => true
+			],
+			'th' => [
+				'style' => true,
+				'class' => true
+			],
+			'thead' => [
+				'style' => true,
+				'class' => true
+			],
+			'tbody' => [
+				'style' => true,
+				'class' => true
+			],
+			'tfoot' => [
+				'style' => true,
+				'class' => true
+			],
+			'p' => [
+				'style' => true,
+				'class' => true,
+			],
+			'strong' => [
+				'style' => true,
+				'class' => true,
+			],
+			'em' => [
+				'style' => true,
+				'class' => true
+			],
+			'div' => [
+				'style' => true,
+				'class' => true,
+			]
+		];
+
+
+		return apply_filters('opb_allowed_html', array_merge(wp_kses_allowed_html(), $allowed_html ));
 	}
 
 	/**

@@ -2322,8 +2322,17 @@ class OptionTypes {
 	 */
 	public function type_html( $args = array() ) {
 
+		$markup = '';
+		if ( ! empty( $args['field_markup'] ) ) {
+			if ( is_callable( $args['field_markup'] ) ) {
+				$markup = call_user_Func( $args['field_markup'] );
+			} else {
+				$markup = $args['field_markup'];
+			}
+		}
+
 		echo '<div class="format-setting type-html">';
-		echo ! empty( $args['field_markup'] ) ? wp_kses( $args['field_markup'], Utils::kses_allowed_html() ) : '';
+		echo ! empty( $markup ) ? $markup : '';
 		echo '</div>';
 	}
 
