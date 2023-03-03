@@ -167,6 +167,7 @@ class Metabox {
 				'field_operator'     => isset( $field['operator'] ) ? $field['operator'] : 'and',
 				'field_choices'      => isset( $field['choices'] ) ? $field['choices'] : array(),
 				'field_settings'     => isset( $field['settings'] ) && ! empty( $field['settings'] ) ? $field['settings'] : array(),
+				'field_ajax'         => isset( $field['ajax'] ) ? $field['ajax'] : [],
 				'post_id'            => $post->ID,
 				'meta'               => true,
 			);

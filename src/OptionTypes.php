@@ -1986,8 +1986,18 @@ class OptionTypes {
 		// Verify a description.
 		$has_desc = ! empty( $field_desc ) ? true : false;
 
+		// format the classes and classes
+		$classes = [ $field_class ];
+		$is_ajax = !empty( $args['field_ajax']);
+		if ( $is_ajax ) {
+			$classes[] = 'option-builder-ui-select-ajax';
+		}
+
+		$wrapper_classes .= $has_desc ? 'has-desc' : 'no-desc';
+		$wrapper_classes .= $is_ajax ? ' type-select-ajax' : '';
+
 		// Format setting outer wrapper.
-		echo '<div class="format-setting type-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-select '.$wrapper_classes.'">';
 
 		// Description.
 		echo $has_desc ? '<div class="description">' . wp_kses_post( htmlspecialchars_decode( $field_desc ) ) . '</div>' : '';
@@ -1998,8 +2008,11 @@ class OptionTypes {
 		// Format setting inner wrapper.
 		echo '<div class="format-setting-inner">';
 
+		// Format the attributes
+		$attributes = Utils::build_data_attributes($args);
+
 		// Build select.
-		echo '<select name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" class="option-builder-ui-select ' . esc_attr( $field_class ) . '">';
+		echo '<select name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" class="option-builder-ui-select ' . esc_attr( implode( ' ', $classes ) ) . '" ' . $attributes .  ' >';
 		foreach ( (array) $field_choices as $choice ) {
 			if ( isset( $choice['value'] ) && isset( $choice['label'] ) ) {
 				$disabled = isset($choice['disabled']) ? (bool) $choice['disabled'] : false;

@@ -521,6 +521,7 @@ class Settings {
 			'field_class'        => isset( $class ) ? $class : '',
 			'field_choices'      => isset( $choices ) && ! empty( $choices ) ? $choices : array(),
 			'field_settings'     => isset( $settings ) && ! empty( $settings ) ? $settings : array(),
+			'field_ajax'         => isset( $ajax ) ? $ajax : [],
 			'field_markup'       => isset ( $markup ) && !empty ( $markup ) ? $markup : '',
 			'post_id'            => Utils::get_media_post_ID(),
 			'get_option'         => $get_option,

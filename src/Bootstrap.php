@@ -1067,6 +1067,15 @@ function custom_theme_options() {
 			wp_dequeue_style( 'jquery-ui-css' );
 		}
 
+		// Load the Tom-Select library.
+		wp_enqueue_style(
+			'tom-select',
+			OPB_URL . 'dist/css/vendor/tom-select/tom-select.default.min.css',
+			[],
+			'2.2.2',
+			'all'
+		);
+
 		/**
 		 * Filter the screen IDs used to dequeue `jquery-ui-css`.
 		 *
@@ -1130,6 +1139,24 @@ function custom_theme_options() {
 		// Load Ace Editor for CSS Editing.
 		wp_enqueue_script( 'ace-editor', 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js', null, '1.1.3', false );
 
+        // Load the Tom-Select library.
+		wp_enqueue_script(
+			'tom-select',
+			OPB_URL . 'dist/js/vendor/tom-select/tom-select.complete.min.js',
+			[],
+			'2.2.2',
+			false
+        );
+
+		// Load the Select library.
+		wp_enqueue_script(
+			'opb-select',
+			OPB_URL . 'dist/js/opb-select.js',
+			[],
+			false,
+			false
+		);
+
 		// Load jQuery UI timepicker addon.
 		wp_enqueue_script( 'jquery-ui-timepicker', OPB_URL . 'dist/js/vendor/jquery/jquery-ui-timepicker.js', array(
 			'jquery',
@@ -1146,8 +1173,8 @@ function custom_theme_options() {
 			'wp-color-picker',
 			'ace-editor',
 			'jquery-ui-datepicker',
-			'jquery-ui-timepicker'
-		), OPB_VERSION, false );
+			'jquery-ui-timepicker',
+		), OPB_VERSION, true );
 
 		// Create localized JS array.
 		$localized_array = array(

@@ -1557,6 +1557,7 @@
 .format-settings {
   position: relative;
   width: 100%;
+  float: left;
 }
 .format-setting-wrap,
 .option-builder-sortable .format-settings {
@@ -1594,7 +1595,6 @@
   :: Format Setting
   ---------------------------------------------------*/
 .format-setting {
-  overflow: hidden;
   position: relative;
   width: 100%;
 }

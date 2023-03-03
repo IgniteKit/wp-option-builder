@@ -581,7 +581,7 @@
     init_select_wrapper: function(scope) {
       scope = scope || document;
       $('.option-builder-ui-select', scope).each(function () {
-        if ( ! $(this).parent().hasClass('select-wrapper') ) {
+        if ( ! $(this).parent().hasClass('select-wrapper') && ! $(this).hasClass('option-builder-ui-select-ajax')) {
           $(this).wrap('<div class="select-wrapper" />');
           $(this).parent('.select-wrapper').prepend('<span>' + $(this).find('option:selected').text() + '</span>');
         }
@@ -1296,3 +1296,32 @@
   });
 
 })( jQuery, window, document );
+
+
+/*!
+ * Autocomplete for the select fields
+ */
+document.addEventListener("DOMContentLoaded", function (event) {
+  let documents = document.querySelectorAll('.option-builder-ui-select-ajax');
+
+  for(var i = 0; i < documents.length; i++) {
+    var endpoint = documents[i].dataset.endpoint;
+    var nonce = documents[i].dataset.nonce;
+    var action = documents[i].dataset.action;
+    var config = {
+      url: endpoint,
+    };
+    if (nonce) {
+      config.nonce = nonce;
+    }
+    if (action) {
+      config.action = action;
+    }
+    console.log(config);
+    new window.OPB.Select(documents[i], {
+      remote: config,
+      placeholder: documents[i].dataset.placeholder
+    });
+    console.log(window.OPB);
+  }
+});

@@ -2981,6 +2981,8 @@ class Utils {
 				'field_operator'     => isset( $field['operator'] ) ? $field['operator'] : 'and',
 				'field_choices'      => isset( $field['choices'] ) && ! empty( $field['choices'] ) ? $field['choices'] : array(),
 				'field_settings'     => isset( $field['settings'] ) && ! empty( $field['settings'] ) ? $field['settings'] : array(),
+				'field_ajax'         => isset( $field['ajax'] ) ? $field['ajax'] : [],
+				'field_markup'       => isset ( $markup ) && !empty ( $markup ) ? $markup : '',
 				'post_id'            => $post_id,
 				'get_option'         => $get_option,
 			);
@@ -3120,6 +3122,8 @@ class Utils {
 				'field_operator'     => isset( $field['operator'] ) ? $field['operator'] : 'and',
 				'field_choices'      => isset( $field['choices'] ) && ! empty( $field['choices'] ) ? $field['choices'] : array(),
 				'field_settings'     => isset( $field['settings'] ) && ! empty( $field['settings'] ) ? $field['settings'] : array(),
+				'field_ajax'         => isset( $field['ajax'] ) ? $field['ajax'] : [],
+				'field_markup'       => isset ( $markup ) && !empty ( $markup ) ? $markup : '',
 				'post_id'            => $post_id,
 				'get_option'         => $get_option,
 			);
@@ -3173,6 +3177,46 @@ class Utils {
 		echo '</div>';
 
 		echo '</div>';
+	}
+
+	/**
+	 * Build the field data args
+	 *
+	 * @param $args
+	 *
+	 * @return string
+	 */
+	public static function build_data_attributes($args) {
+
+		$attributes_list = [];
+
+		if ( ! empty( $args['field_ajax']['endpoint'] ) ) {
+			$attributes_list['data-endpoint'] = $args['field_ajax']['endpoint'];
+			$attributes_list['data-nonce'] = isset($args['field_ajax']['nonce']) ? $args['field_ajax']['nonce'] : wp_create_nonce('opb_security');
+			$attributes_list['data-action'] = isset($args['field_ajax']['action']) ? $args['field_ajax']['action'] : '';
+		}
+		if ( ! empty( $args['placeholder'] ) ) {
+			$attributes_list['data-placeholder'] = $args['placeholder'];
+		}
+
+		return self::html_attributes($attributes_list);
+
+	}
+
+	/**
+	 * Helper function to generate HTML attributes based on assoc array.
+	 * @param $attributes
+	 *
+	 * @return string
+	 */
+	public static function html_attributes( $attributes ) {
+		if ( ! $attributes ) {
+			return '';
+		}
+
+		$compiled = join( '="%s" ', array_keys( $attributes ) ) . '="%s"';
+
+		return vsprintf( $compiled, array_map( 'htmlspecialchars', array_values( $attributes ) ) );
 	}
 
 
