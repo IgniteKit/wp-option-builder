@@ -2962,7 +2962,8 @@ class Utils {
 			}
 
 			// Make life easier.
-			$_field_name = $get_option ? $get_option . '[' . $name . ']' : $name;
+			$_field_name = Utils::format_options_name($field, $get_option);
+			$_field_name = !empty($_field_name) ? $_field_name.'['.$name.']' : $name;
 
 			// Build the arguments array.
 			$_args = array(
@@ -2982,7 +2983,9 @@ class Utils {
 				'field_choices'      => isset( $field['choices'] ) && ! empty( $field['choices'] ) ? $field['choices'] : array(),
 				'field_settings'     => isset( $field['settings'] ) && ! empty( $field['settings'] ) ? $field['settings'] : array(),
 				'field_ajax'         => isset( $field['ajax'] ) ? $field['ajax'] : [],
-				'field_markup'       => isset ( $markup ) && !empty ( $markup ) ? $markup : '',
+				'field_markup'       => isset( $field['markup'] ) && !empty ( $field['markup'] ) ? $field['markup'] : '',
+				'field_group'        => isset( $field['group'] ) && !empty ( $field['group'] ) ? $field['group'] : '',
+				'field_section'      => isset( $field['section'] ) && !empty ( $field['section'] ) ? $field['section'] : '',
 				'post_id'            => $post_id,
 				'get_option'         => $get_option,
 			);
@@ -3103,7 +3106,8 @@ class Utils {
 			}
 
 			// Make life easier.
-			$_field_name = $get_option ? $get_option . '[' . $name . ']' : $name;
+			$_field_name = Utils::format_options_name($field, $get_option);
+			$_field_name = !empty($_field_name) ? $_field_name.'['.$name.']' : $name;
 
 			// Build the arguments array.
 			$_args = array(
@@ -3123,7 +3127,9 @@ class Utils {
 				'field_choices'      => isset( $field['choices'] ) && ! empty( $field['choices'] ) ? $field['choices'] : array(),
 				'field_settings'     => isset( $field['settings'] ) && ! empty( $field['settings'] ) ? $field['settings'] : array(),
 				'field_ajax'         => isset( $field['ajax'] ) ? $field['ajax'] : [],
-				'field_markup'       => isset ( $markup ) && !empty ( $markup ) ? $markup : '',
+				'field_markup'       => isset( $field['markup'] ) && !empty ( $field['markup'] ) ? $field['markup'] : '',
+				'field_group'        => isset( $field['group'] ) && !empty ( $field['group'] ) ? $field['group'] : '',
+				'field_section'      => isset( $field['section'] ) && !empty ( $field['section'] ) ? $field['section'] : '',
 				'post_id'            => $post_id,
 				'get_option'         => $get_option,
 			);
@@ -3518,6 +3524,68 @@ class Utils {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Create the field name
+	 *
+	 * @param  array  $field
+	 *
+	 * @return string
+	 * @since 1.2.0
+	 */
+	public static function format_options_name( $field, $get_option = '' ) {
+
+		$prefix = ! empty( $get_option ) ? $get_option : '';
+
+		if ( ! empty( $field['group'] ) ) {
+			if ( is_bool( $field['group'] ) ) {
+				$group = (bool) $field['group'] && ! empty( $field['section'] ) ? $field['section'] : '';
+			} else {
+				$group = $field['group'];
+			}
+		} else {
+			$group = '';
+		}
+
+		if ( ! empty( $group ) ) {
+			return sprintf( '%s[%s]', $prefix, $group );
+		} else {
+			return sprintf( '%s', $prefix );
+		}
+	}
+
+	/**
+	 * Format the field value
+	 *
+	 * @param $field
+	 * @param $options
+	 * @param $default
+	 *
+	 * @sincd 1.2.0
+	 *
+	 * @return mixed|string
+	 */
+	public static function format_field_value($field, $options, $default = '') {
+
+		if ( ! empty( $field['group'] ) ) {
+			if ( is_bool( $field['group'] ) ) {
+				$group = (bool) $field['group'] && ! empty( $field['section'] ) ? $field['section'] : '';
+			} else {
+				$group = $field['group'];
+			}
+		} else {
+			$group = '';
+		}
+
+		$id = isset($field['id']) ? $field['id'] : '';
+
+		if ( ! empty( $group ) ) {
+			return isset( $options[ $group ][ $id ] ) ? $options[ $group ][ $id ] : '';
+		} else {
+			return isset( $options[ $id ] ) ? $options[ $id ] : '';
+		}
+
 	}
 
 	/**

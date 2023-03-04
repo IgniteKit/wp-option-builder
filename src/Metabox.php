@@ -168,6 +168,9 @@ class Metabox {
 				'field_choices'      => isset( $field['choices'] ) ? $field['choices'] : array(),
 				'field_settings'     => isset( $field['settings'] ) && ! empty( $field['settings'] ) ? $field['settings'] : array(),
 				'field_ajax'         => isset( $field['ajax'] ) ? $field['ajax'] : [],
+				'field_group'        => isset( $field['group'] ) ? $field['grou'] : [],
+				'field_markup'       => isset( $field['markup'] ) && !empty ( $field['markup'] ) ? $field['markup'] : '',
+				'field_section'      => isset( $field['section'] ) && !empty ( $field['section'] ) ? $field['section'] : '',
 				'post_id'            => $post->ID,
 				'meta'               => true,
 			);

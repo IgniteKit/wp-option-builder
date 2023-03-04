@@ -494,7 +494,7 @@ class Settings {
 		$options = get_option( $get_option, false );
 
 		// Set field value.
-		$field_value = isset( $options[ $id ] ) ? $options[ $id ] : '';
+		$field_value = Utils::format_field_value( $args, $options, '' );
 
 		// Set standard value.
 		if ( isset( $std ) ) {
@@ -504,11 +504,13 @@ class Settings {
 		// Allow the descriptions to be filtered before being displayed.
 		$desc = apply_filters( 'opb_filter_description', ( isset( $desc ) ? $desc : '' ), $id );
 
+		$_field_name = Utils::format_options_name($args, $get_option);
+
 		// Build the arguments array.
 		$_args = array(
 			'type'               => $type,
 			'field_id'           => $id,
-			'field_name'         => $get_option . '[' . $id . ']',
+			'field_name'         => $_field_name . '[' . $id . ']',
 			'field_value'        => $field_value,
 			'field_desc'         => $desc,
 			'field_std'          => isset( $std ) ? $std : '',
@@ -522,7 +524,9 @@ class Settings {
 			'field_choices'      => isset( $choices ) && ! empty( $choices ) ? $choices : array(),
 			'field_settings'     => isset( $settings ) && ! empty( $settings ) ? $settings : array(),
 			'field_ajax'         => isset( $ajax ) ? $ajax : [],
-			'field_markup'       => isset ( $markup ) && !empty ( $markup ) ? $markup : '',
+			'field_group'        => isset( $group ) ? $group : [],
+			'field_markup'       => isset( $markup ) && !empty ( $markup ) ? $markup : '',
+			'field_section'      => isset( $section ) && !empty ( $section ) ? $section : '',
 			'post_id'            => Utils::get_media_post_ID(),
 			'get_option'         => $get_option,
 		);
