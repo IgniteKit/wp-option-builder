@@ -27,6 +27,11 @@ class Framework {
 		if ( ! $args ) {
 			return;
 		}
+
+		if ( isset( $args['id'] ) ) {
+			$args = [ $args ];
+		}
+
 		new Settings( $args );
 	}
 
