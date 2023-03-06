@@ -332,7 +332,7 @@ class Settings {
 					}
 
 					// Sections.
-					echo '<div id="poststuff" class="metabox-holder">';
+					echo '<div id="main-content" class="metabox-holder">';
 
 					echo '<div id="post-body">';
 

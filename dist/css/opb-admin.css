@@ -1160,9 +1160,6 @@
 /* --------------------------------------------------
   :: OptionBuilder Wrappers
   ---------------------------------------------------*/
-#option-builder-settings-api .metabox-holder {
-  overflow: hidden;
-}
 #option-builder-settings-api .postbox {
   background: #fff;
   border: none;
@@ -1177,18 +1174,6 @@
   border: 1px solid #ccc;
   border-top: none;
   margin: 0px 5px 0 2px;
-  min-width: 533px;
-  padding-bottom: 5px;
-  position: relative;
-  -webkit-box-shadow: inset 146px 0 0 #f1f1f1, inset 147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
-     -moz-box-shadow: inset 146px 0 0 #f1f1f1, inset 147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
-          box-shadow: inset 146px 0 0 #f1f1f1, inset 147px 0 0 #ccc, 0 1px 3px rgba(0,0,0,0.05);
-  -webkit-border-radius: 0 0 2px 2px;
-     -moz-border-radius: 0 0 2px 2px;
-          border-radius: 0 0 2px 2px;
-}
-.postbox.opb-meta-box {
-
 }
 
 #poststuff .postbox.opb-meta-box .inside {
@@ -1199,6 +1184,29 @@
 
 #poststuff .postbox.opb-meta-box .is-panel {
 	display: none !important;
+}
+
+@media(min-width: 768px) {
+  #option-builder-settings-api .metabox-holder {
+    width: 85%;
+    float: left;
+    padding-top:0;
+  }
+  #option-builder-settings-api .metabox-holder  {
+    border-left: 1px solid #ccc;
+  }
+}
+@media(max-width: 767px) {
+  .wrap.settings-wrap .ui-tabs-nav, .metabox-holder {
+    width: 100%;
+    float:left;
+  }
+  .wrap.settings-wrap .ui-tabs-nav {
+    border-bottom: 1px solid #ccc;
+  }
+  .metabox-holder div:first-child.format-settings h3 {
+    margin-top: 0;
+  }
 }
 
 /* --------------------------------------------------
@@ -1515,9 +1523,13 @@
 .wrap.settings-wrap .ui-tabs-nav {
   float: left;
   list-style: none;
-  margin: 0 0 0 -4px;
+  margin: 0 0 0 0;
   padding: 1em 0;
-  width: 151px;
+}
+@media(min-width: 768px) {
+  .wrap.settings-wrap .ui-tabs-nav {
+    width: 12%;
+  }
 }
 .wrap.settings-wrap .ui-tabs-nav li {
   border: 1px solid transparent;
@@ -1531,6 +1543,7 @@
   background: #fff;
   border-color: #ccc;
   color: #000;
+  margin-left: -4px;
 }
 .wrap.settings-wrap .ui-tabs-nav li a {
   color: #21759b;
@@ -1544,6 +1557,18 @@
   color: #000;
   outline: none;
 }
+
+.wrap.settings-wrap .ui-tabs-nav li.ui-state-active a {
+  background: #fff;
+}
+
+@media(min-width: 768px) {
+  .wrap.settings-wrap .ui-tabs-nav li.ui-state-active a {
+    width: 101%;
+    position: relative;
+  }
+}
+
 .wrap.settings-wrap .ui-tabs-nav li a:focus {
   box-shadow:none;
 }
