@@ -229,6 +229,7 @@ class Settings {
 				if ( ! isset( $page['hidden_page'] ) && $screen->id === $this->page_hook[ $page['id'] ] ) {
 
 					$show_buttons = isset( $page['show_buttons'] ) && false === $page['show_buttons'] ? false : true;
+					$show_subheader = isset( $page['show_subheader'] ) && false === $page['show_subheader'] ? false : true;
 
 					// Update active layout content.
 					if ( isset( $_REQUEST['settings-updated'] ) && true === filter_var( wp_unslash( $_REQUEST['settings-updated'] ), FILTER_VALIDATE_BOOLEAN ) ) { // phpcs:ignore
@@ -307,13 +308,15 @@ class Settings {
 					}
 
 					// Sub Header.
-					echo '<div id="option-builder-sub-header">';
+					if( $show_subheader ) {
+						echo '<div id="option-builder-sub-header">';
 
-					if ( $show_buttons ) {
-						echo '<button class="option-builder-ui-button button button-primary right">' . esc_html( $page['button_text'] ) . '</button>';
+						if ( $show_buttons ) {
+							echo '<button class="option-builder-ui-button button button-primary right">' . esc_html( $page['button_text'] ) . '</button>';
+						}
+
+						echo '</div>';
 					}
-
-					echo '</div>';
 
 					// Navigation.
 					echo '<div class="ui-tabs">';
