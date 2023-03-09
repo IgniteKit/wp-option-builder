@@ -1235,6 +1235,8 @@
   float: left;
   margin: 0px;
   padding: 0px;
+  padding-top:5px;
+  padding-bottom:5px;
 }
 #option-builder-header li a {
   color: #999;
@@ -1549,7 +1551,7 @@
   color: #21759b;
   display: block;
   line-height: 18px;
-  padding: 5px 5px 5px 12px;
+  padding: 6px 5px 6px 12px;
   text-decoration: none;
 }
 .wrap.settings-wrap .ui-tabs-nav li a:hover,
