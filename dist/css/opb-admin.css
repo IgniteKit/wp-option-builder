@@ -1191,9 +1191,8 @@
     width: 85%;
     float: left;
     padding-top:0;
-  }
-  #option-builder-settings-api .metabox-holder  {
     border-left: 1px solid #ccc;
+    min-height: 350px;
   }
 }
 @media(max-width: 767px) {
