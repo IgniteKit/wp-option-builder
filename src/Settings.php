@@ -230,6 +230,7 @@ class Settings {
 
 					$show_buttons = isset( $page['show_buttons'] ) && false === $page['show_buttons'] ? false : true;
 					$show_subheader = isset( $page['show_subheader'] ) && false === $page['show_subheader'] ? false : true;
+                    $hide_reset = isset($page['hide_reset']) && true === $page['hide_reset'];
 
 					// Update active layout content.
 					if ( isset( $_REQUEST['settings-updated'] ) && true === filter_var( wp_unslash( $_REQUEST['settings-updated'] ), FILTER_VALIDATE_BOOLEAN ) ) { // phpcs:ignore
@@ -366,7 +367,7 @@ class Settings {
 					echo $show_buttons ? '</form>' : '</div>';
 
 					// Reset button.
-					if ( $show_buttons ) {
+					if ( $show_buttons && ! $hide_reset ) {
 
 						echo '<form method="post" action="' . esc_url_raw( str_replace( '&settings-updated=true', '', $_SERVER['REQUEST_URI'] ) ) . '">'; // phpcs:ignore
 
