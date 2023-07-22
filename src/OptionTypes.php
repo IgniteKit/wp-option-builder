@@ -1980,6 +1980,8 @@ class OptionTypes {
 	 */
 	public function type_select( $args = array() ) {
 
+        $wrapper_classes = '';
+
 		// Turns arguments array into variables.
 		extract( $args ); // phpcs:ignore
 
