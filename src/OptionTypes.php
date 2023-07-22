@@ -2696,6 +2696,12 @@ class OptionTypes {
 		// Turns arguments array into variables.
 		extract( $args ); // phpcs:ignore
 
+
+		$field_type = ( isset( $field_type ) && in_array( $field_type, [
+				'text',
+				'password'
+			] ) ) ? $field_type : 'text';
+
 		// Verify a description.
 		$has_desc = ! empty( $field_desc ) ? true : false;
 
@@ -2709,7 +2715,7 @@ class OptionTypes {
 		echo '<div class="format-setting-inner">';
 
 		// Build text input.
-		echo '<input type="text" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat option-builder-ui-input ' . esc_attr( $field_class ) . '" />';
+		echo '<input type="' . esc_attr( $field_type ) . '" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat option-builder-ui-input ' . esc_attr( $field_class ) . '" />';
 
 		echo '</div>';
 
