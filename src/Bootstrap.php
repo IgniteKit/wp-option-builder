@@ -53,7 +53,7 @@ class Bootstrap {
 		/**
 		 * Load option builder
 		 */
-		add_action( 'after_setup_theme', array( $this, 'load_option_builder' ), 1 );
+		add_action( 'init', array( $this, 'load_option_builder' ), 1 );
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Bootstrap {
 	}
 
 	/**
-	 * OptionBuilder loads on the 'after_setup_theme' action.
+	 * OptionBuilder loads on the 'init' action.
 	 *
 	 * @access public
 	 * @since 1.0.0
